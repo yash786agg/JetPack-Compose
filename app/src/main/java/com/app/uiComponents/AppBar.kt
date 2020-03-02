@@ -58,7 +58,7 @@ fun AppBarTitleIcon(text: String, image: Image) {
     TopAppBar(title = {
         TextView(text)
     },
-        color = Color.White,
+        color = Color.Yellow,
         navigationIcon = {
             AppBarIcon(icon = image) {
                 //Handle Click
@@ -80,7 +80,7 @@ fun AppBarMenuIcon(text: String) {
         TextView(text)
 
     },
-        color = Color.Yellow,
+        color = Color.White,
         actionData = listOf(MenuItem.Share,MenuItem.More),
         action = {action ->
             AppBarIcon(icon = imageFromResource(context.resources,action.icon)) {

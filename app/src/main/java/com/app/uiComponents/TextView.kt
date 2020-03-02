@@ -4,6 +4,6 @@ import androidx.compose.Composable
 import androidx.ui.core.Text
 
 @Composable
-fun TextView(text: String) {
-    Text(text = text)
+fun TextView(text: Any?) {
+    Text(text = text.toString())
 }
