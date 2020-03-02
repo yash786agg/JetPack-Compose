@@ -2,4 +2,12 @@
     <string name="app_name">JetPackCompose</string>
     <string name="share">Share</string>
     <string name="more">More</string>
+    <string name="item">Item</string>
+    <string name="open">Open</string>
+    <string name="click_response">Item clicked</string>
+
+    <!--UI Component-->
+
+    <string name="app_Bar">App Bar</string>
+
 </resources>

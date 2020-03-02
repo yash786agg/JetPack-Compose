@@ -5,45 +5,44 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.Composable
 import androidx.compose.ambient
 import androidx.compose.unaryPlus
-import androidx.core.content.ContextCompat
-import androidx.ui.core.*
+import androidx.ui.core.ContextAmbient
+import androidx.ui.core.setContent
 import androidx.ui.graphics.imageFromResource
-import androidx.ui.layout.*
-import androidx.ui.material.*
+import androidx.ui.layout.FlexColumn
+import androidx.ui.material.MaterialTheme
 import androidx.ui.tooling.preview.Preview
-import com.app.uiComponents.*
+import com.app.uiComponents.AppBarTitleIcon
+import com.app.uiComponents.ListViewWithItemClick
+import kotlin.collections.ArrayList
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            AppBar()
+            JetPackCompose()
         }
     }
 }
 
 @Composable
-fun AppBar() = MaterialTheme {
+fun JetPackCompose() = MaterialTheme {
     val context = +ambient(ContextAmbient)
     FlexColumn {
         inflexible {
-            AppBarTitle(context.resources.getString(R.string.app_name))
-            HeightSpacer(height = 15.dp)
-            AppBarTitleColor(context.resources.getString(R.string.app_name))
-            HeightSpacer(height = 15.dp)
-            AppBarTitleCustomColor(context.resources.getString(R.string.app_name),
-                    ContextCompat.getColor(context, R.color.colorAccent))
-            HeightSpacer(height = 15.dp)
             AppBarTitleIcon(context.resources.getString(R.string.app_name),
                     imageFromResource(context.resources,R.drawable.ic_menu_black_24dp))
-            HeightSpacer(height = 15.dp)
-            AppBarMenuIcon(text = context.resources.getString(R.string.app_name))
+        }
+        flexible(1f) {
+            val arrayList = ArrayList<String>()
+            arrayList.add(context.resources.getString(R.string.app_Bar))
+            for(i in 1..40){
+                arrayList.add("${context.resources.getString(R.string.item)} $i")
+            }
+            ListViewWithItemClick(arrayList = arrayList)
         }
     }
 }
 
 @Preview
 @Composable
-fun DefaultPreview() {
-    AppBar()
-}
+fun DefaultPreview() = JetPackCompose()
