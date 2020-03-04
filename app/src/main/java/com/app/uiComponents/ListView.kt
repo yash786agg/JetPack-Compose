@@ -60,9 +60,8 @@ fun <T> ListViewWithItemClick(arrayList: ArrayList<T>){
                 arrayList.forEachIndexed { index, element ->
                     Clickable(onClick = {
                         Toast.makeText(context, R.string.click_response, Toast.LENGTH_SHORT).show()
-                        if(index == 0) {
-                            LaunchScreen.openActivity(context)
-                        }
+                        LaunchScreen.openActivity(index,context)
+
                     }) {
                         FlexRow(crossAxisAlignment = CrossAxisAlignment.Center){
                             //expanded is like weight Consume as full space allocated to it.
@@ -74,9 +73,7 @@ fun <T> ListViewWithItemClick(arrayList: ArrayList<T>){
                                     style = ContainedButtonStyle(color = Color.LightGray),
                                     onClick = {
                                         Toast.makeText(context,"Click on $element Button", Toast.LENGTH_SHORT).show()
-                                        if(index == 0) {
-                                            LaunchScreen.openActivity(context)
-                                        }
+                                        LaunchScreen.openActivity(index,context)
                                     },
                                     modifier = Spacing(12.dp)
                                 )

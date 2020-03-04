@@ -22,6 +22,8 @@
         </activity>
         <activity android:name=".AppBarActivity"
             android:theme="@style/AppTheme.NoActionBar"/>
+
+        <activity android:name=".TextViewActivity"/>
     </application>
 
 </manifest>

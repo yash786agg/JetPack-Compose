@@ -44,7 +44,8 @@ fun AppBarTitleColor(text: String) {
 @Composable
 fun AppBarTitleCustomColor(text: String, color: Int) {
     TopAppBar(title = { TextView(text) },
-        color = Color(color = color))
+        color = Color(color = color)
+    )
 }
 
 /**
