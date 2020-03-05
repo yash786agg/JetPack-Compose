@@ -16,10 +16,7 @@ import androidx.ui.layout.HeightSpacer
 import androidx.ui.layout.Spacing
 import androidx.ui.material.MaterialTheme
 import androidx.ui.tooling.preview.Preview
-import com.app.uiComponents.TexViewEllipsize
-import com.app.uiComponents.TextView
-import com.app.uiComponents.TextViewMaxLines
-import com.app.uiComponents.TextViewStyling
+import com.app.uiComponents.*
 
 class TextViewActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -50,10 +47,26 @@ fun MyTextView() = MaterialTheme {
             HeightSpacer(height = 20.dp)
             TextViewStyling(
                 text = context.resources.getString(R.string.jetPack_text),
-                textColor = ContextCompat.getColor(context,R.color.colorRed),
+                textColor = ContextCompat.getColor(context,R.color.colorBlack),
                 textSize = 16,
                 backgroundColor = ContextCompat.getColor(context,R.color.colorYellow),
-                fountType = "berninasans_bold.ttf")
+                fountType = "deadpack.ttf")
+
+            HeightSpacer(height = 20.dp)
+            MultiColoredTextView(text = context.resources.getString(R.string.app_name),
+                firstColor = ContextCompat.getColor(context,R.color.colorRed),
+                textSize = 16,
+                secondColor = ContextCompat.getColor(context,R.color.colorBlack)
+            )
+
+            HeightSpacer(height = 20.dp)
+            MultiColoredParagraphTextView(text = context.resources.getString(R.string.jetPack_text),
+                firstColor = ContextCompat.getColor(context,R.color.colorBlack),
+                textSize = 18,
+                secondColor = ContextCompat.getColor(context,R.color.colorRed),
+                backgroundColor = ContextCompat.getColor(context,R.color.colorYellow),
+                fountType = "berninasans_bold.ttf"
+            )
         }
     }
 }

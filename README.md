@@ -6,7 +6,7 @@ This repository is a collection of jetpack compose modules to help bootstrap an 
 
 |   | Name  | Description  |   |   |
 | ------------| ------------ | ------------ | ------------ | ------------ |
-| 1  | [TextView](https://github.com/yash786agg/JetPack-Compose/blob/master/app/src/main/java/com/app/uiComponents/TextView.kt) | TextView helps to display the text on screen.  | ![](https://imgur.com/NtdrcbO.png)  |   |
+| 1  | [TextView](https://github.com/yash786agg/JetPack-Compose/blob/master/app/src/main/java/com/app/uiComponents/TextView.kt) | TextView helps to display the text on screen.  | ![](https://i.imgur.com/TdwFITY.png)  |   |
 | 2  | [AppBar](https://github.com/yash786agg/JetPack-Compose/blob/master/app/src/main/java/com/app/uiComponents/AppBar.kt) | AppBar component is often used as the header for our screen. It displays navigation title, color, icon along with menu components and clicks listener.  | ![](https://imgur.com/WGptKNg.png)  |   |
 | 3  | [ListView](https://github.com/yash786agg/JetPack-Compose/blob/master/app/src/main/java/com/app/uiComponents/ListView.kt)  | It creates a column and stack all of them in listview vertically and inside this VerticalScroller help column in the scrolling of the list items. | ![](https://imgur.com/QuzUB6i.png)  | ![](demo_files/listview_demo.gif)  |
 

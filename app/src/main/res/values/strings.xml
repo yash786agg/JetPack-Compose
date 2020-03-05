@@ -5,7 +5,7 @@
     <string name="item">Item</string>
     <string name="open">Open</string>
     <string name="click_response">Item clicked</string>
-    <string name="jetPack_text">In Google IO 2019, Google launched Jetpack Compose aims to be a declarative framework to build Android user interfaces easily using a Kotlin. So, basically, declarative UI means to create UI by specifying a specific set of UI elements</string>
+    <string name="jetPack_text">In Google IO 2019, Google launched Jetpack Compose aims to be a declarative framework to build Android user interfaces easily using a Kotlin.</string>
 
     <!--UI Component-->
 
