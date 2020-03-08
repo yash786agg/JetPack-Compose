@@ -37,6 +37,7 @@ fun JetPackCompose() = MaterialTheme {
             arrayList.add(context.resources.getString(R.string.app_Bar))
             arrayList.add(context.resources.getString(R.string.text_view))
             arrayList.add(context.resources.getString(R.string.button))
+            arrayList.add(context.resources.getString(R.string.image_view))
             for(i in 1..40){
                 arrayList.add("${context.resources.getString(R.string.item)} $i")
             }

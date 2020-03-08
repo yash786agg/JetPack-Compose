@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import com.app.jetpackcompose.AppBarActivity
 import com.app.jetpackcompose.ButtonActivity
+import com.app.jetpackcompose.ImageViewActivity
 import com.app.jetpackcompose.TextViewActivity
 
 object LaunchScreen {
@@ -19,6 +20,10 @@ object LaunchScreen {
             }
             2 -> {
                 val intent = Intent(context, ButtonActivity::class.java)
+                context.startActivity(intent)
+            }
+            3 -> {
+                val intent = Intent(context, ImageViewActivity::class.java)
                 context.startActivity(intent)
             }
         }

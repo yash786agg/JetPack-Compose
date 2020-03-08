@@ -12,5 +12,6 @@
     <string name="app_Bar">App Bar</string>
     <string name="text_view">TextView</string>
     <string name="button">Button</string>
+    <string name="image_view">ImageView</string>
 
 </resources>
