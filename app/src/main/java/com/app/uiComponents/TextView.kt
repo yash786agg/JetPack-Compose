@@ -2,19 +2,17 @@ package com.app.uiComponents
 
 import androidx.compose.Composable
 import androidx.ui.core.Text
-import androidx.ui.core.TextUnit
-import androidx.ui.core.sp
 import androidx.ui.graphics.Color
 import androidx.ui.text.AnnotatedString
-import androidx.ui.text.ParagraphStyle
+import androidx.ui.text.SpanStyle
 import androidx.ui.text.TextStyle
-import androidx.ui.text.font.Font
 import androidx.ui.text.font.FontFamily
 import androidx.ui.text.font.FontStyle
 import androidx.ui.text.style.TextAlign
 import androidx.ui.text.style.TextDecoration
-import androidx.ui.text.style.TextIndent
 import androidx.ui.text.style.TextOverflow
+import androidx.ui.unit.TextUnit
+import androidx.ui.unit.sp
 
 /*
 * @author Yash Agarwal
@@ -36,7 +34,7 @@ fun TextView(text: Any?) = Text(text = text.toString())
  */
 
 @Composable
-fun TextViewMaxLines(text: Any?, maxLines: Int? = 1) {
+fun TextViewMaxLines(text: Any?, maxLines: Int = 1) {
     Text(
         text = text.toString(),
         maxLines = maxLines
@@ -50,8 +48,9 @@ fun TextViewMaxLines(text: Any?, maxLines: Int? = 1) {
  * overflow = TextOverflow.Ellipsis text will display ellipsis (…)
  */
 
+
 @Composable
-fun TexViewEllipsize(text: Any?, maxLines: Int? = 1) {
+fun TexViewEllipsize(text: Any?, maxLines: Int = 1) {
     Text(
         text = text.toString(),
         maxLines = maxLines,
@@ -86,6 +85,7 @@ fun TexViewEllipsize(text: Any?, maxLines: Int? = 1) {
   and underscores
  */
 
+
 @Composable
 fun TextViewStyling(
         text: Any?,
@@ -100,9 +100,9 @@ fun TextViewStyling(
             color =  Color(color = textColor),
             fontSize = TextUnit.Sp(textSize),
             background = Color(color = backgroundColor),
-            fontFamily = FontFamily(Font(name = fountType)),
+            fontFamily = FontFamily.Cursive,
             fontStyle = FontStyle.Normal,
-            decoration = TextDecoration.Underline
+            textDecoration = TextDecoration.Underline
         )
     )
 }
@@ -116,6 +116,7 @@ fun TextViewStyling(
  * AnnotatedString is used when we want to provide styled text that utilises spans / multiple text styles.
  */
 
+
 @Composable
 fun MultiColoredTextView(text: Any?,
                          firstColor: Int,
@@ -125,8 +126,8 @@ fun MultiColoredTextView(text: Any?,
     val annotatedString = AnnotatedString.Builder(text.toString())
         .apply {
             addStyle(
-                TextStyle(color = Color(color = firstColor),
-                        decoration = TextDecoration.LineThrough,
+                SpanStyle(color = Color(color = firstColor),
+                        textDecoration = TextDecoration.LineThrough,
                         fontSize = 18.sp,
                         fontStyle = FontStyle.Italic), 0, 7)
         }
@@ -155,6 +156,7 @@ fun MultiColoredTextView(text: Any?,
  * popStyle() – It removes the previously added style from the AnnotatedText.
  */
 
+
 @Composable
 fun MultiColoredParagraphTextView(text: Any?,
                                   firstColor: Int,
@@ -162,14 +164,14 @@ fun MultiColoredParagraphTextView(text: Any?,
                                   secondColor: Int,
                                   backgroundColor: Int,
                                   fountType: String) {
-    val textStyle = TextStyle(
+    val spanStyle = SpanStyle(
         color = Color(color = firstColor),
         fontSize = TextUnit.Sp(textSize),
         background = Color(color = backgroundColor),
-        fontFamily = FontFamily(Font(name = fountType))
+        fontFamily = FontFamily.SansSerif
     )
     val annotatedString = AnnotatedString.Builder(text.toString().substring(0, 19))
-    annotatedString.pushStyle(textStyle)
+    annotatedString.pushStyle(spanStyle)
     annotatedString.append(text.toString().substring(19, 94))
     annotatedString.popStyle()
     annotatedString.append(text.toString().substring(94, text.toString().length))
@@ -179,9 +181,7 @@ fun MultiColoredParagraphTextView(text: Any?,
         style = TextStyle(
             color = Color(color = secondColor),
             fontSize = 16.sp,
-            fontStyle = FontStyle.Normal
-        ),
-        paragraphStyle = ParagraphStyle(
+            fontStyle = FontStyle.Normal,
             textAlign = TextAlign.Start,
             lineHeight = 26.sp
         )
