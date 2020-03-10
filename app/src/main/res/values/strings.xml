@@ -5,6 +5,8 @@
     <string name="item">Item</string>
     <string name="open">Open</string>
     <string name="click_response">Item clicked</string>
+    <string name="text_view_click">Click Me TextView!!!</string>
+    <string name="click_text_view_response">TextView clicked</string>
     <string name="jetPack_text">In Google IO 2019, Google launched Jetpack Compose aims to be a declarative framework to build Android user interfaces easily using a Kotlin.</string>
 
     <!--UI Component-->
