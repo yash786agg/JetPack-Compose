@@ -10,6 +10,7 @@ import androidx.ui.layout.*
 import androidx.ui.material.MaterialTheme
 import androidx.ui.tooling.preview.Preview
 import androidx.ui.unit.dp
+import com.app.uiComponents.DrawableImage
 import com.app.uiComponents.VectorDrawableImage
 
 class ImageViewActivity : AppCompatActivity() {
@@ -26,11 +27,9 @@ fun MyImageView() = MaterialTheme {
     val context = ContextAmbient.current
 
     Column {
-        /*DrawableImage(R.drawable.debugging) {
+        DrawableImage(R.drawable.debugging) {
             Toast.makeText(context,"Click on Drawable Image",Toast.LENGTH_SHORT).show()
-        }*/
-
-        Spacer(modifier = LayoutHeight(height = 20.dp))
+        }
 
         VectorDrawableImage(R.drawable.ic_launcher_background) {
             Toast.makeText(context,"Click on Vector Image",Toast.LENGTH_SHORT).show()

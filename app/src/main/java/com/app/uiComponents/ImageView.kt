@@ -1,46 +1,37 @@
 package com.app.uiComponents
 
-import android.text.style.LineHeightSpan
 import androidx.annotation.DrawableRes
 import androidx.compose.*
-import androidx.ui.core.*
 import androidx.ui.foundation.Clickable
+import androidx.ui.foundation.SimpleImage
 import androidx.ui.graphics.Color
 import androidx.ui.graphics.vector.DrawVector
 import androidx.ui.layout.*
 import androidx.ui.material.ripple.Ripple
 import androidx.ui.res.imageResource
 import androidx.ui.res.vectorResource
-import androidx.ui.unit.dp
 
-/*@Composable
+@Composable
 fun DrawableImage(@DrawableRes id: Int, onClick: () -> Unit) {
-    val vector = vectorResource(id)
+    val image = imageResource(id)
     Clickable(onClick = onClick) {
-        Column(modifier = LayoutSize(vector.defaultWidth,vector.defaultHeight)) {
-            DrawVector(vectorImage = vector)
-        }
+        SimpleImage(image = image)
     }
-}*/
+}
 
 @Composable
 fun VectorDrawableImage(@DrawableRes id: Int, onClick: () -> Unit) {
-    val vector = vectorResource(id)
     Ripple(bounded = false) {
         Clickable(onClick = onClick) {
-            DrawVector(vectorImage = vector)
+            VectorImage(id = id)
         }
     }
 }
 
-/*
 @Composable
-fun VectorImage(modifier: Modifier = Modifier.None, @DrawableRes id: Int, tint: Color = Color.Transparent) {
+fun VectorImage(@DrawableRes id: Int, tint: Color = Color.Transparent) {
     val vector = vectorResource(id)
-    LineHeightSpan.WithDensity {
-        Container(modifier = LayoutSize(vector.defaultWidth,vector.defaultHeight) {
-            DrawVector(vector, tint)
-        }
+    Container(width = vector.defaultWidth, height = vector.defaultHeight) {
+        DrawVector(vector, tint)
     }
 }
-*/
