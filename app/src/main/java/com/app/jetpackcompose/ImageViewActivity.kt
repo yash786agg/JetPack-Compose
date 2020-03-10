@@ -9,7 +9,6 @@ import androidx.ui.core.setContent
 import androidx.ui.layout.*
 import androidx.ui.material.MaterialTheme
 import androidx.ui.tooling.preview.Preview
-import androidx.ui.unit.dp
 import com.app.uiComponents.DrawableImage
 import com.app.uiComponents.VectorDrawableImage
 

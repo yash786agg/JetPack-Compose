@@ -6,9 +6,11 @@ This repository is a collection of jetpack compose modules to help bootstrap an 
 
 |   | Name  | Description  |   |   |
 | ------------| ------------ | ------------ | ------------ | ------------ |
-| 1  | [TextView](https://github.com/yash786agg/JetPack-Compose/blob/master/app/src/main/java/com/app/uiComponents/TextView.kt) | TextView helps to display the text on screen.  | ![](https://i.imgur.com/TdwFITY.png)  |   |
-| 2  | [AppBar](https://github.com/yash786agg/JetPack-Compose/blob/master/app/src/main/java/com/app/uiComponents/AppBar.kt) | AppBar component is often used as the header for our screen. It displays navigation title, color, icon along with menu components and clicks listener.  | ![](https://imgur.com/WGptKNg.png)  |   |
-| 3  | [ListView](https://github.com/yash786agg/JetPack-Compose/blob/master/app/src/main/java/com/app/uiComponents/ListView.kt)  | It creates a column and stack all of them in listview vertically and inside this VerticalScroller help column in the scrolling of the list items. | ![](https://imgur.com/QuzUB6i.png)  | ![](demo_files/listview_demo.gif)  |
+| 1  | [AppBar](https://github.com/yash786agg/JetPack-Compose/blob/master/app/src/main/java/com/app/uiComponents/AppBar.kt) | AppBar component is often used as the header for our screen. It displays navigation title, color, vector icon along with menu components and clicks listener.  | ![](https://imgur.com/WGptKNg.png)  |   |
+| 2  | [TextView](https://github.com/yash786agg/JetPack-Compose/blob/master/app/src/main/java/com/app/uiComponents/TextView.kt) | TextView helps to display the text on screen.  | ![](https://i.imgur.com/TdwFITY.png)  |   |
+| 3  | [Button](https://github.com/yash786agg/JetPack-Compose/blob/master/app/src/main/java/com/app/uiComponents/Button.kt) | Button is a component where the user can tap or click to perform an action. Available style for Button DefaultStyle, OutlineStyle and TextStyle. | ![](https://imgur.com/7n8DmXj.png)  |   |
+| 4  | [ImageView](https://github.com/yash786agg/JetPack-Compose/blob/master/app/src/main/java/com/app/uiComponents/ImageView.kt) | Displaying image resources, for example Drawable and Vector Drawable using Composable function DrawableImage and VectorDrawableImage. | ![](https://imgur.com/MHd7HOY.png)  |   |
+| 5  | [ListView](https://github.com/yash786agg/JetPack-Compose/blob/master/app/src/main/java/com/app/uiComponents/ListView.kt)  | It creates a column and stack all of them in listView vertically and inside this VerticalScroller help column in the scrolling of the list items. | ![](https://imgur.com/QuzUB6i.png)  | ![](demo_files/listview_demo.gif)  |
 
 #### Jetpack Compose still isn’t ready for production. Developer preview libraries were made only to simplify trying the future of UI in Android.So you should be on 4.1 Canary build of Android Studio
 
@@ -22,8 +24,8 @@ This repository is a collection of jetpack compose modules to help bootstrap an 
     }
     
     dependencies {
-    classpath "com.android.tools.build:gradle:4.1.0-alpha01"
-    classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.3.61"
+        classpath "com.android.tools.build:gradle:4.1.0-alpha01"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.3.61"
     }
     
 ### Step 02. App's build.gradle
@@ -42,28 +44,34 @@ This repository is a collection of jetpack compose modules to help bootstrap an 
             // Enables JetPack Compose for this module
             compose true
         }
+
+        // Only use for dev06 Version
+        composeOptions {
+                kotlinCompilerVersion "1.3.61-dev-withExperimentalGoogleExtensions-20200129"
+                kotlinCompilerExtensionVersion "0.1.0-dev06"
+            }
     }
     
-### When importing classes related to Jetpack Compose in this project, use those from:
+### When importing classes related to JetPack Compose in this project, use those from:
 
 * androidx.compose.* for compiler and runtime classes.
 * androidx.ui.* for ui toolkit and libraries.
    
  ### UI components
  
-    implementation 'androidx.ui:ui-layout:0.1.0-dev03'
-    implementation 'androidx.ui:ui-material:0.1.0-dev03'
-    implementation 'androidx.ui:ui-tooling:0.1.0-dev03'
-    implementation 'androidx.ui:ui-foundation:0.1.0-dev03'
-    implementation 'androidx.ui:ui-animation:0.1.0-dev03'
-    implementation 'androidx.ui:ui-animation-core:0.1.0-dev03'
-    implementation 'androidx.ui:ui-vector:0.1.0-dev03'
-    implementation 'androidx.ui:ui-foundation:0.1.0-dev03'
-    implementation 'androidx.ui:ui-text:0.1.0-dev03'
-    implementation 'androidx.ui:ui-test:0.1.0-dev03'
+    implementation 'androidx.ui:ui-layout:0.1.0-dev06'
+    implementation 'androidx.ui:ui-material:0.1.0-dev06'
+    implementation 'androidx.ui:ui-tooling:0.1.0-dev06'
+    implementation 'androidx.ui:ui-foundation:0.1.0-dev06'
+    implementation 'androidx.ui:ui-animation:0.1.0-dev06'
+    implementation 'androidx.ui:ui-animation-core:0.1.0-dev06'
+    implementation 'androidx.ui:ui-vector:0.1.0-dev06'
+    implementation 'androidx.ui:ui-foundation:0.1.0-dev06'
+    implementation 'androidx.ui:ui-text:0.1.0-dev06'
+    implementation 'androidx.ui:ui-test:0.1.0-dev06'
     
 # Demo
-![JetPack-Compose](demo_files/listview_demo.gif)
+![JetPack-Compose](demo_files/jetpack_compose_demo.gif)
 
 ## Build it
 
