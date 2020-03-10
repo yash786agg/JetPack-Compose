@@ -1,6 +1,7 @@
 package com.app.uiComponents
 
 import androidx.compose.Composable
+import androidx.ui.core.Modifier
 import androidx.ui.core.Text
 import androidx.ui.graphics.Color
 import androidx.ui.text.AnnotatedString
@@ -89,21 +90,13 @@ fun TexViewEllipsize(text: Any?, maxLines: Int = 1) {
 @Composable
 fun TextViewStyling(
         text: Any?,
-        textColor: Int,
-        textSize: Int = 14,
-        backgroundColor: Int,
-        fountType: String)
+        modifier: Modifier = Modifier.None,
+        style: TextStyle)
 {
     Text(
         text = text.toString(),
-        style = TextStyle(
-            color =  Color(color = textColor),
-            fontSize = TextUnit.Sp(textSize),
-            background = Color(color = backgroundColor),
-            fontFamily = FontFamily.Cursive,
-            fontStyle = FontStyle.Normal,
-            textDecoration = TextDecoration.Underline
-        )
+        modifier = modifier,
+        style = style
     )
 }
 

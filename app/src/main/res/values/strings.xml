@@ -13,5 +13,6 @@
     <string name="text_view">TextView</string>
     <string name="button">Button</string>
     <string name="image_view">ImageView</string>
+    <string name="fab">Floating Action Button</string>
 
 </resources>
