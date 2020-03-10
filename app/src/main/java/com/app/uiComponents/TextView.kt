@@ -3,6 +3,7 @@ package com.app.uiComponents
 import androidx.compose.Composable
 import androidx.ui.core.Modifier
 import androidx.ui.core.Text
+import androidx.ui.foundation.Clickable
 import androidx.ui.graphics.Color
 import androidx.ui.text.AnnotatedString
 import androidx.ui.text.SpanStyle
@@ -179,4 +180,18 @@ fun MultiColoredParagraphTextView(text: Any?,
             lineHeight = 26.sp
         )
     )
+}
+
+/**
+ * TextView to display some text on screen
+ * @param text The text to be displayed
+ * @param onClick Click listener on TextView
+ */
+
+@Composable
+fun TextViewClick(text: Any?,
+                  onClick: () -> Unit) {
+    Clickable(onClick = onClick) {
+        Text(text = text.toString())
+    }
 }

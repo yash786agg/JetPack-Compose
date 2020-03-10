@@ -1,6 +1,7 @@
 package com.app.jetpackcompose
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.Composable
 import androidx.core.content.ContextCompat
@@ -41,6 +42,13 @@ fun MyTextView() = MaterialTheme {
             Container(width = 180.dp) {
                 TextView(text = context.resources.getString(R.string.jetPack_text))
             }
+
+            Spacer(modifier = LayoutHeight(height = 20.dp))
+
+            TextViewClick(text = context.resources.getString(R.string.text_view_click)) {
+                Toast.makeText(context,R.string.click_text_view_response,Toast.LENGTH_SHORT).show()
+            }
+
             Spacer(modifier = LayoutHeight(height = 20.dp))
 
             TextViewMaxLines(text = context.resources.getString(R.string.jetPack_text),maxLines = 2)
