@@ -1,14 +1,14 @@
 package com.app.jetpackcompose
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.Composable
-import androidx.compose.ambient
-import androidx.compose.unaryPlus
 import androidx.ui.core.ContextAmbient
 import androidx.ui.core.setContent
-import androidx.ui.graphics.imageFromResource
-import androidx.ui.layout.FlexColumn
+import androidx.ui.layout.Column
+import androidx.ui.layout.LayoutWidth
+import androidx.ui.layout.Stack
 import androidx.ui.material.MaterialTheme
 import androidx.ui.tooling.preview.Preview
 import com.app.uiComponents.AppBarTitleIcon
@@ -26,13 +26,13 @@ class MainActivity : AppCompatActivity() {
 
 @Composable
 fun JetPackCompose() = MaterialTheme {
-    val context = +ambient(ContextAmbient)
-    FlexColumn {
-        inflexible {
-            AppBarTitleIcon(context.resources.getString(R.string.app_name),
-                    imageFromResource(context.resources,R.drawable.ic_menu_black_24dp))
+    val context = ContextAmbient.current
+    Column {
+        AppBarTitleIcon(context.resources.getString(R.string.app_name),
+            R.drawable.ic_menu_black_24dp) {
+            Toast.makeText(context,"Click on Menu Drawer Icon", Toast.LENGTH_SHORT).show()
         }
-        flexible(1f) {
+        Stack(modifier = LayoutFlexible(1f) + LayoutWidth.Fill) {
             val arrayList = ArrayList<String>()
             arrayList.add(context.resources.getString(R.string.app_Bar))
             arrayList.add(context.resources.getString(R.string.text_view))

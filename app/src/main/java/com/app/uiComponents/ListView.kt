@@ -2,17 +2,14 @@ package com.app.uiComponents
 
 import android.widget.Toast
 import androidx.compose.Composable
-import androidx.compose.ambient
-import androidx.compose.unaryPlus
 import androidx.ui.core.ContextAmbient
-import androidx.ui.core.dp
 import androidx.ui.foundation.Clickable
 import androidx.ui.foundation.VerticalScroller
 import androidx.ui.graphics.Color
 import androidx.ui.layout.*
 import androidx.ui.material.Button
-import androidx.ui.material.ContainedButtonStyle
 import androidx.ui.material.Divider
+import androidx.ui.unit.dp
 import com.app.helper.LaunchScreen
 import com.app.jetpackcompose.R
 /*
@@ -27,11 +24,11 @@ import com.app.jetpackcompose.R
 
 @Composable
 fun <T> ListViewWithText(arrayList: ArrayList<T>) {
-    val context = +ambient(ContextAmbient)
+    val context = ContextAmbient.current
     VerticalScroller(isScrollable = true) {
         Column {
             arrayList.forEachIndexed { _, element ->
-                Padding(padding = 12.dp) {
+                Container(LayoutPadding(12.dp)) {
                     Clickable(onClick = {
                         Toast.makeText(context, R.string.click_response, Toast.LENGTH_SHORT)
                             .show()
@@ -53,9 +50,9 @@ fun <T> ListViewWithText(arrayList: ArrayList<T>) {
 
 @Composable
 fun <T> ListViewWithItemClick(arrayList: ArrayList<T>){
-    val context = +ambient(ContextAmbient)
+    val context = ContextAmbient.current
     VerticalScroller(isScrollable = true) {
-        Padding(padding = 12.dp) {
+        Container(LayoutPadding(12.dp)) {
             Column {
                 arrayList.forEachIndexed { index, element ->
                     Clickable(onClick = {
@@ -63,20 +60,17 @@ fun <T> ListViewWithItemClick(arrayList: ArrayList<T>){
                         LaunchScreen.openActivity(index,context)
 
                     }) {
-                        FlexRow(crossAxisAlignment = CrossAxisAlignment.Center){
-                            //expanded is like weight Consume as full space allocated to it.
-                            //flexible is like weight Consume the space base on View size
-                            expanded(1f) {TextView(text = element)}
-                            inflexible {//inflexible is like wrap_content
+                        Row(modifier = LayoutPadding(12.dp)) {
+                            Stack(modifier = LayoutFlexible(1f) + LayoutGravity.Center) { TextView(text = element) }
+                            Stack(modifier = LayoutFlexible(1f) + LayoutWidth.Fill + LayoutAlign.End) {
                                 Button(
-                                    text = context.resources.getString(R.string.open),
-                                    style = ContainedButtonStyle(color = Color.LightGray),
                                     onClick = {
                                         Toast.makeText(context,"Click on $element Button", Toast.LENGTH_SHORT).show()
                                         LaunchScreen.openActivity(index,context)
-                                    },
-                                    modifier = Spacing(12.dp)
-                                )
+                                    }
+                                ){
+                                    TextView(text = context.resources.getString(R.string.open))
+                                }
                             }
                         }
                         Divider(color = Color.Black)
@@ -95,33 +89,30 @@ fun <T> ListViewWithItemClick(arrayList: ArrayList<T>){
 
 @Composable
 fun <T> ListViewWith2TextView(arrayList: ArrayList<T>) {
-    val context = +ambient(ContextAmbient)
+    val context = ContextAmbient.current
     VerticalScroller(isScrollable = true) {
-        Padding(padding = 12.dp) {
+        Container(LayoutPadding(12.dp)) {
             Column {
                 Clickable(onClick = {
                     Toast.makeText(context, R.string.click_response, Toast.LENGTH_SHORT).show()
                 }){
                     arrayList.forEachIndexed { index, element ->
-                        FlexRow(crossAxisAlignment = CrossAxisAlignment.Center) {
-                            //expanded is like weight Consume as full space allocated to it.
-                            //flexible is like weight Consume the space base on View size
-                            expanded(1f) {
+                        Row(modifier = LayoutPadding(12.dp)) {
+                            Stack(modifier = LayoutFlexible(1f) + LayoutGravity.Center){
                                 Column {
                                     TextView(text = element)
                                     TextView(text = element)
                                 }
                             }
-                            inflexible {//inflexible is like wrap_content
+                            Stack(modifier = LayoutFlexible(1f) + LayoutWidth.Fill + LayoutAlign.End) {//inflexible is like wrap_content
                                 Button(
-                                    text = context.resources.getString(R.string.open),
-                                    style = ContainedButtonStyle(color = Color.LightGray),
                                     onClick = {
                                         Toast.makeText(context,"Click on $element Button",
                                             Toast.LENGTH_SHORT).show()
-                                    },
-                                    modifier = Spacing(12.dp)
-                                )
+                                    }
+                                ){
+                                    TextView(text = context.resources.getString(R.string.open))
+                                }
                             }
                         }
                         Divider(color = Color.Black)
