@@ -7,9 +7,15 @@ import androidx.core.content.ContextCompat
 import androidx.ui.core.ContextAmbient
 import androidx.ui.core.setContent
 import androidx.ui.foundation.VerticalScroller
+import androidx.ui.graphics.Color
 import androidx.ui.layout.*
 import androidx.ui.material.MaterialTheme
+import androidx.ui.text.TextStyle
+import androidx.ui.text.font.FontFamily
+import androidx.ui.text.font.FontStyle
+import androidx.ui.text.style.TextDecoration
 import androidx.ui.tooling.preview.Preview
+import androidx.ui.unit.TextUnit
 import androidx.ui.unit.dp
 import com.app.uiComponents.*
 
@@ -44,12 +50,17 @@ fun MyTextView() = MaterialTheme {
             TexViewEllipsize(text = context.resources.getString(R.string.jetPack_text),maxLines = 2)
 
             Spacer(modifier = LayoutHeight(height = 20.dp))
+            val style = TextStyle(
+                color =  Color(color = ContextCompat.getColor(context,R.color.colorBlack)),
+                fontSize = TextUnit.Sp(16),
+                background = Color(color = ContextCompat.getColor(context,R.color.colorYellow)),
+                fontFamily = FontFamily.Cursive,
+                fontStyle = FontStyle.Normal,
+                textDecoration = TextDecoration.Underline
+            )
             TextViewStyling(
                 text = context.resources.getString(R.string.jetPack_text),
-                textColor = ContextCompat.getColor(context,R.color.colorBlack),
-                textSize = 16,
-                backgroundColor = ContextCompat.getColor(context,R.color.colorYellow),
-                fountType = "deadpack.ttf")
+                style = style)
 
             Spacer(modifier = LayoutHeight(height = 20.dp))
 

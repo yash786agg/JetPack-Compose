@@ -30,6 +30,8 @@
         <activity android:name=".ButtonActivity"/>
 
         <activity android:name=".ImageViewActivity"/>
+
+        <activity android:name=".FABActivity"/>
     </application>
 
 </manifest>
