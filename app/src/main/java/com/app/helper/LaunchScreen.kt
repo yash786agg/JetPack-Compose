@@ -27,8 +27,6 @@ object LaunchScreen {
                 val intent = Intent(context, FABActivity::class.java)
                 context.startActivity(intent)
             }
-
         }
-
     }
 }

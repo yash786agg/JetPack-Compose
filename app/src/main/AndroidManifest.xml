@@ -32,6 +32,8 @@
         <activity android:name=".ImageViewActivity"/>
 
         <activity android:name=".FABActivity"/>
+
+        <activity android:name=".TestActivity"/>
     </application>
 
 </manifest>

@@ -3,10 +3,11 @@ package com.app.uiComponents
 import androidx.annotation.DrawableRes
 import androidx.compose.Composable
 import androidx.compose.state
+import androidx.core.content.ContextCompat
 import androidx.ui.animation.Crossfade
-import androidx.ui.core.LayoutModifier
-import androidx.ui.core.Modifier
-import androidx.ui.core.Text
+import androidx.ui.core.Alignment
+import androidx.ui.core.ContextAmbient
+import androidx.ui.foundation.Clickable
 import androidx.ui.foundation.shape.corner.RoundedCornerShape
 import androidx.ui.graphics.Color
 import androidx.ui.layout.*
@@ -28,7 +29,7 @@ fun NavigationDrawerMenu() {
 
     val (drawerState, onDrawerStateChange) = state { DrawerState.Closed }
 
-    MaterialTheme{
+    MaterialTheme {
         ModalDrawerLayout(
             drawerState = drawerState,
             onStateChange = onDrawerStateChange,
@@ -60,11 +61,11 @@ private fun AppContent(openDrawer: () -> Unit) {
 @Composable
 fun DrawerContent(currentScreen: Screen,
                   closeDrawer: () -> Unit) {
-
+    val context = ContextAmbient.current
     Column(modifier = LayoutWidth.Fill + LayoutHeight.Fill) {
         DrawerButton(
-            icon = R.drawable.ic_share_black_24dp,
-            label = "UIComponents",
+            icon = R.drawable.ic_mobile_24dp,
+            label = context.resources.getString(R.string.title_ui_components),
             isSelected = currentScreen == Screen.UIComponents
         ) {
             navigateTo(Screen.UIComponents)
@@ -72,8 +73,8 @@ fun DrawerContent(currentScreen: Screen,
         }
 
         DrawerButton(
-            icon = R.drawable.ic_more_black_24dp,
-            label = "JetPackApp",
+            icon = R.drawable.ic_cloud_24dp,
+            label = context.resources.getString(R.string.title_jetpack_app),
             isSelected = currentScreen == Screen.JetPackApp
         ) {
             navigateTo(Screen.JetPackApp)
@@ -84,21 +85,20 @@ fun DrawerContent(currentScreen: Screen,
 
 @Composable
 private fun DrawerButton(
-    modifier: Modifier = Modifier.None,
     @DrawableRes icon: Int,
     label: String,
     isSelected: Boolean,
     action: () -> Unit
 ) {
-   // val context = ContextAmbient.current
+    val context = ContextAmbient.current
     val colors = MaterialTheme.colors()
     val textIconColor = if (isSelected) {
-        colors.primary
+        Color.Red
     } else {
         colors.onSurface.copy(alpha = 0.6f)
     }
     val backgroundColor = if (isSelected) {
-        colors.primary.copy(alpha = 0.12f)
+        Color.Red.copy(alpha = 0.12f)
     } else {
         colors.surface
     }
@@ -112,24 +112,55 @@ private fun DrawerButton(
         color = backgroundColor,
         shape = RoundedCornerShape(4.dp)
     ) {
-        Button(onClick = action) {
-            Row(arrangement = Arrangement.Start) {
+        Clickable(onClick = action){
+            Row(modifier = LayoutPadding(12.dp)) {
 
-                VectorImage(vectorResourceId = icon) {
-                    action()
+                Stack(modifier = LayoutGravity.Center)
+                {
+                    /*DrawVector(
+                        alignment = Alignment.CenterStart,
+                        vectorImage = vector,
+                        tintColor = textIconColor
+                    )*/
+                    VectorImageSelector(
+                        vectorResourceId = icon,
+                        selected = isSelected,
+                        alignment = Alignment.CenterStart,
+                        iconColorOff = ContextCompat.getColor(context,R.color.colorBlack),
+                        iconColorOn = ContextCompat.getColor(context,R.color.colorRed),
+                        onClick = action)
+
+                }
+
+                Spacer(LayoutWidth(16.dp))
+
+                Stack(modifier = LayoutGravity.Center) {
+                    TextViewStyling(text = label,
+                        style = TextStyle(
+                            color = textIconColor,
+                            textAlign = TextAlign.Center)
+                    )
+                }
+            }
+        }
+        /*Button(onClick = action) {
+            Row(arrangement = Arrangement.Start) {
+                Stack(modifier = LayoutFlexible(1f) + LayoutGravity.Center)
+                {
+                    VectorImage(vectorResourceId = icon) { action() }
                 }
 
                 Spacer(LayoutWidth(12.dp))
 
-                TextViewStyling(
-                    text = label,
-                    style = TextStyle(
-                        color = textIconColor,
-                        textAlign = TextAlign.Start
+                Stack(modifier = LayoutFlexible(1f) + LayoutWidth.Fill ) {
+                    TextViewStyling(text = label,
+                        style = TextStyle(
+                            color = textIconColor,
+                            textAlign = TextAlign.Start)
                     )
-                )
+                }
             }
-        }
+        }*/
         /*TextButton(onClick = action) {
             Row(arrangement = Arrangement.Start) {
                 VectorImage(

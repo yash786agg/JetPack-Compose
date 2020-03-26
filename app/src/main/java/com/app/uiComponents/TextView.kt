@@ -63,10 +63,7 @@ fun TexViewEllipsize(text: Any?, maxLines: Int = 1) {
 /**
  * TextViewStyling to style the text attribute.
  * @param text The text to be displayed
- * @param textColor Color reference used for the color of the text
- * @param textSize size of the text font in Sp(Scalable Pixel) format
- * @param backgroundColor background color of the text component
- *
+
  * Other decoration -> TextDecoration.None =  Hello
  * TextDecoration.LineThrough = Hello
  *
@@ -156,8 +153,7 @@ fun MultiColoredParagraphTextView(text: Any?,
                                   firstColor: Int,
                                   textSize: Int = 14,
                                   secondColor: Int,
-                                  backgroundColor: Int,
-                                  fountType: String) {
+                                  backgroundColor: Int) {
     val spanStyle = SpanStyle(
         color = Color(color = firstColor),
         fontSize = TextUnit.Sp(textSize),
