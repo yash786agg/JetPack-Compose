@@ -2,6 +2,7 @@ package com.app.uiComponents
 
 import androidx.annotation.DrawableRes
 import androidx.compose.*
+import androidx.ui.core.Alignment
 import androidx.ui.core.Modifier
 import androidx.ui.foundation.Clickable
 import androidx.ui.foundation.SimpleImage
@@ -29,6 +30,44 @@ fun DrawableImage(@DrawableRes imageResourceId: Int,
     }
 }
 
+@Composable
+fun VectorImageSelector(@DrawableRes vectorResourceId: Int,
+                        modifier: Modifier = Modifier.None,
+                        selected: Boolean = false,
+                        alignment: Alignment = Alignment.Center,
+                        iconColorOff : Int,
+                        iconColorOn : Int,
+                        onClick: () -> Unit) {
+    val vector = vectorResource(vectorResourceId)
+    val selectedColor = if (selected) {
+        Color.Transparent
+    } else {
+        Color.Transparent
+    }
+
+    val tintColor = if (selected) {
+        iconColorOn
+    } else {
+        iconColorOff
+    }
+    Surface(
+        color = selectedColor,
+        shape = RoundedCornerShape(4.dp),
+        modifier = modifier + LayoutPadding(2.dp)
+    ) {
+        Ripple(bounded = true) {
+            Clickable(onClick = onClick) {
+                Container(width = vector.defaultWidth, height = vector.defaultHeight) {
+                    DrawVector(
+                        vectorImage = vector,
+                        alignment = alignment,
+                        tintColor = Color(tintColor)
+                    )
+                }
+            }
+        }
+    }
+}
 @Composable
 fun VectorImage(@DrawableRes vectorResourceId: Int,
                 modifier: Modifier = Modifier.None,

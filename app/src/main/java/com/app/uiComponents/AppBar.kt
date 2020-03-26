@@ -2,7 +2,6 @@ package com.app.uiComponents
 
 import androidx.annotation.DrawableRes
 import androidx.compose.Composable
-import androidx.ui.core.Modifier
 import androidx.ui.graphics.Color
 import androidx.ui.layout.LayoutHeight
 import androidx.ui.layout.LayoutWidth
@@ -49,7 +48,6 @@ fun AppBarTitleCustomColor(text: String, color: Int) {
 /**
  * App Bar displays title and Image Icon.
  * @param text The text to be displayed in the AppBar
- * @param image The image icon to be displayed at the start of the AppBar
  */
 
 @Composable

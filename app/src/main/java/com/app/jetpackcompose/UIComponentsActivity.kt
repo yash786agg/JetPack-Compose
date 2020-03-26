@@ -1,7 +1,6 @@
 package com.app.jetpackcompose
 
 import android.os.Bundle
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.Composable
 import androidx.ui.core.ContextAmbient
@@ -13,25 +12,26 @@ import androidx.ui.material.MaterialTheme
 import androidx.ui.tooling.preview.Preview
 import com.app.uiComponents.AppBarTitleIcon
 import com.app.uiComponents.ListViewWithItemClick
-import kotlin.collections.ArrayList
+import com.app.uiComponents.NavigationDrawerMenu
 
-class MainActivity : AppCompatActivity() {
+class UIComponentsActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            JetPackCompose()
+            JetPackUIComponents{}
         }
     }
 }
-
 @Composable
-fun JetPackCompose() = MaterialTheme {
+fun JetPackUIComponents(openDrawer: () -> Unit) = MaterialTheme {
     val context = ContextAmbient.current
     Column {
-        AppBarTitleIcon(context.resources.getString(R.string.app_name),
+        AppBarTitleIcon(context.resources.getString(R.string.title_ui_components),
             R.drawable.ic_menu_black_24dp) {
-            Toast.makeText(context,"Click on Menu Drawer Icon", Toast.LENGTH_SHORT).show()
+            openDrawer()
         }
+
         Stack(modifier = LayoutFlexible(1f) + LayoutWidth.Fill) {
             val arrayList = ArrayList<String>()
             arrayList.add(context.resources.getString(R.string.app_Bar))
@@ -49,4 +49,4 @@ fun JetPackCompose() = MaterialTheme {
 
 @Preview
 @Composable
-fun DefaultPreview() = JetPackCompose()
+fun JetPackUIComponentsPreview() = NavigationDrawerMenu()

@@ -84,9 +84,9 @@ fun MyTextView() = MaterialTheme {
                 firstColor = ContextCompat.getColor(context,R.color.colorBlack),
                 textSize = 18,
                 secondColor = ContextCompat.getColor(context,R.color.colorRed),
-                backgroundColor = ContextCompat.getColor(context,R.color.colorYellow),
-                fountType = "berninasans_bold.ttf"
+                backgroundColor = ContextCompat.getColor(context,R.color.colorYellow)
             )
+
         }
     }
 }
