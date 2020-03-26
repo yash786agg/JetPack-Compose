@@ -1,7 +1,6 @@
 package com.app.jetpackcompose
 
 import android.os.Bundle
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.Composable
 import androidx.ui.core.ContextAmbient
@@ -25,7 +24,6 @@ fun JetPackAppScreen(openDrawer: () -> Unit)  {
     Column {
         AppBarTitleIcon(context.resources.getString(R.string.title_jetpack_app),
             R.drawable.ic_menu_black_24dp) {
-            Toast.makeText(context,"Click on Menu Drawer Icon", Toast.LENGTH_SHORT).show()
             openDrawer()
         }
     }

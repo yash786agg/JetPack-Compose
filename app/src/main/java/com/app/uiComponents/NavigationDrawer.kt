@@ -1,5 +1,6 @@
 package com.app.uiComponents
 
+import android.widget.Toast
 import androidx.annotation.DrawableRes
 import androidx.compose.Composable
 import androidx.compose.state
@@ -68,6 +69,8 @@ fun DrawerContent(currentScreen: Screen,
             label = context.resources.getString(R.string.title_ui_components),
             isSelected = currentScreen == Screen.UIComponents
         ) {
+            Toast.makeText(context,"Click on ${context.resources.getString(R.string.title_ui_components)}"
+                , Toast.LENGTH_SHORT).show()
             navigateTo(Screen.UIComponents)
             closeDrawer()
         }
@@ -77,6 +80,8 @@ fun DrawerContent(currentScreen: Screen,
             label = context.resources.getString(R.string.title_jetpack_app),
             isSelected = currentScreen == Screen.JetPackApp
         ) {
+            Toast.makeText(context,"Click on ${context.resources.getString(R.string.title_jetpack_app)}"
+                , Toast.LENGTH_SHORT).show()
             navigateTo(Screen.JetPackApp)
             closeDrawer()
         }
@@ -112,16 +117,12 @@ private fun DrawerButton(
         color = backgroundColor,
         shape = RoundedCornerShape(4.dp)
     ) {
-        Clickable(onClick = action){
+        Clickable(onClick = action)
+        {
             Row(modifier = LayoutPadding(12.dp)) {
 
                 Stack(modifier = LayoutGravity.Center)
                 {
-                    /*DrawVector(
-                        alignment = Alignment.CenterStart,
-                        vectorImage = vector,
-                        tintColor = textIconColor
-                    )*/
                     VectorImageSelector(
                         vectorResourceId = icon,
                         selected = isSelected,
@@ -143,41 +144,6 @@ private fun DrawerButton(
                 }
             }
         }
-        /*Button(onClick = action) {
-            Row(arrangement = Arrangement.Start) {
-                Stack(modifier = LayoutFlexible(1f) + LayoutGravity.Center)
-                {
-                    VectorImage(vectorResourceId = icon) { action() }
-                }
-
-                Spacer(LayoutWidth(12.dp))
-
-                Stack(modifier = LayoutFlexible(1f) + LayoutWidth.Fill ) {
-                    TextViewStyling(text = label,
-                        style = TextStyle(
-                            color = textIconColor,
-                            textAlign = TextAlign.Start)
-                    )
-                }
-            }
-        }*/
-        /*TextButton(onClick = action) {
-            Row(arrangement = Arrangement.Start) {
-                VectorImage(
-                    vectorResourceId = icon
-                ){
-                    action()
-                }
-                //Spacer(modifier = Modifier.None)
-                Text(
-                    text = label*//*,
-                    style = (MaterialTheme.typography()).body2.copy(
-                        color = textIconColor,
-                        textAlign = TextAlign.Start
-                    )*//*
-                )
-            }
-        }*/
     }
 }
 
